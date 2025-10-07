@@ -1,9 +1,6 @@
-#Talking Data Starter Code
-
-#Part 2 Setting up the program
 import pandas as pd
 import matplotlib.pyplot as plt
-
+# full dataframe info
 pd.set_option('display.max_columns', None)
 pd.set_option('max_colwidth', None)
 
@@ -13,17 +10,18 @@ print("My favorite movie is " + favMovie)
 
 
 
-#Part 3 Investigate the data
-#print(movieData.head())
-#print(movieData["movie_title"])
+#first five rows of movieData
+print(movieData.head())
+# all titles in the movie_title column
+print(movieData["movie_title"])
 
 
 #Part 4 Filter data
 print("\nThe data for my favorite movie is:\n")
-#Create a new variable to store your favorite movie information
+#finds column of the movie title
 favMovieBooleanList = movieData["movie_title"] == favMovie
 #print(favMovieBooleanList)
-
+# creates a new dataframe with rows from the list, or in this case the movie
 favMovieData = movieData.loc[favMovieBooleanList]
 print(favMovieData)
 
@@ -32,9 +30,11 @@ print("\n\n")
 
 #Create a new variable to store a new data set with a certain genre
 dramaMovieBooleanList = movieData["genres"].str.contains("Drama")
+# creates a new dataframe with rows with the category of drama
 dramaMovieData = movieData.loc[dramaMovieBooleanList]
 
-
+# number of rows in the dramaMovie.
+# shape = (rows, columns)
 numOfMovies = dramaMovieData.shape[0]
 
 print("We will be comparing " + favMovie +
