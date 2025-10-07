@@ -1,4 +1,3 @@
-# This code is written in python
 # The pandas library is used for data processing and to read data files
 import pandas as pd 
 #The matplotlib library is used to plot histograms and scatter plots
@@ -10,7 +9,7 @@ import GWCutilities as util
 # as a pandas DataFrame
 lwd=pd.read_csv("livwell135.csv")
 
-# Print out the number of rows and columns
+# Print out the number of rows and columns in a tuple
 print(lwd.shape)
 print("\nApproximately 89.32 million females live in Bangladesh, as of 2025, but less than half of them are involved in the labor work force. Oftentimes, women are involved in agricultural work, and bringing back drinking water for their family, as their main job. However, they can be prevented from this opportunty due to poor climate and global warming. Women work in a patriarchal society where they are expected to fulfill household responsibilities.\n")
 input("\n Press enter to continue: \n")
@@ -19,9 +18,11 @@ input("\n Press enter to continue: \n")
 print("\nAs denoted by the Women's Well-being dataset's scatterplot for Bangladesh, the number of women working has been fluctuating from 2000 to 2015. It has experienced periods of growth, decline, and stagnation. As of post 2011, we can see a positive increase in the number of women who are legally employed.\n ")
 #  basic colors:
 # 'blue', 'green', 'red', 'cyan', 'magenta', 'yellow', 'black', 'white'
+# find the columnn on Bangladesh
 oneCountryBooleanList = lwd["country_name"]=="Bangladesh"
+# creates a new dataframe with the row of information on Bangladesh
 oneCountryData = lwd.loc[oneCountryBooleanList]
-# create a scatter plot
+# create a scatter plot of Bangladesh year (x) vs women working (y)
 plt.scatter(oneCountryData["year"],oneCountryData["WK_working_p"],color="red")
 
 # add a title to the plot
